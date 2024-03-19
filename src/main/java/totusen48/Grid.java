@@ -2,7 +2,7 @@ package totusen48;
 
 import java.util.*;
 
-public class Grid implements GridInterface {
+public class Grid {
 
     private Square[][] field = new Square[4][4];
     Score score;

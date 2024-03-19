@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="totusen48.Controller">
+   <children>
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="dcdcdc" height="60" layoutX="40.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="dcdcdc" height="60" layoutX="172.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="122.0" />
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#bbada0" height="256.0" layoutX="40.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+      <Pane fx:id="border" layoutX="40.0" layoutY="140.0" prefHeight="256.0" prefWidth="256.0">
+         <children>
+            <Rectangle id="00" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="7" layoutY="7" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="01" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="69" layoutY="7" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="02" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="131" layoutY="7" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="03" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="193" layoutY="7" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="10" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="7" layoutY="69" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="11" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="69" layoutY="69" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="12" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="131" layoutY="69" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="13" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="193" layoutY="69" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="20" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="7" layoutY="131" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="21" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="69" layoutY="131" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="22" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="131" layoutY="131" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="23" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="193" layoutY="131" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="30" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="7" layoutY="193" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="31" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="69" layoutY="193" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="32" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="131" layoutY="193" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+            <Rectangle id="33" arcHeight="15.0" arcWidth="15.0" fill="#cdc1bf" height="55" layoutX="193" layoutY="193" stroke="BLACK" strokeType="INSIDE" width="55.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="textBorder" layoutX="40.0" layoutY="140.0" prefHeight="256.0" prefWidth="256.0">
+         <children>
+            <Text layoutX="2.0" layoutY="-8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="65.0" layoutY="-8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="126.0" layoutY="-8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="187.0" layoutY="-8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="2.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="65.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="126.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="187.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text LayoutX="2.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="65.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="126.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="187.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="2.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="65.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="126.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+            <Text layoutX="187.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="55.0" x="7.0" y="50.0" />
+         </children>
+      </Pane>
+      <Text fx:id="scoreTextHeader" layoutX="65.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="scoreText" layoutX="65.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="highscoreTextHeader" layoutX="185.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Highscore:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="highscoreText" layoutX="185.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Rectangle fx:id="newGame" arcHeight="15.0" arcWidth="15.0" fill="dcdcdc" height="60" layoutX="40.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" styleClass="newGame" width="256.0" />
+      <Text fx:id="newGameText" layoutX="116.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New game">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="gameOverText" fill="WHITE" layoutX="55.0" layoutY="290.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="GAME OVER">
+         <font>
+            <Font name="Impact" size="52.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
