@@ -1,0 +1,168 @@
+.text2{
+    -fx-font-size: 36;
+    font-size: 36;
+    -fx-fill: black;
+    fill: black;
+}
+
+.text4{
+    -fx-font-size: 36;
+    font-size: 36;
+    -fx-fill: black;
+    fill: black;
+}
+
+.text8{
+    -fx-font-size: 36;
+    font-size: 36;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text16{
+    -fx-font-size: 36;
+    font-size: 36;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text32{
+    -fx-font-size: 36;
+    font-size: 36;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text64{
+    -fx-font-size: 36;
+    font-size: 36;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text128{
+    -fx-font-size: 30;
+    font-size: 30;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text256{
+    -fx-font-size: 30;
+    font-size: 30;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text512{
+    -fx-font-size: 30;
+    font-size: 30;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text1024{
+    -fx-font-size: 24;
+    font-size: 24;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text2048{
+    -fx-font-size: 24;
+    font-size: 24;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text4096{
+    -fx-font-size: 24;
+    font-size: 24;
+    -fx-fill: white;
+    fill: white;
+}
+
+.text8192{
+    -fx-font-size: 24;
+    font-size: 24;
+    -fx-fill: white;
+    fill: white;
+}
+
+
+.square0{
+    -fx-fill: #cdc1bf;
+    fill: #cdc1bf;
+}
+
+.square2{
+    -fx-fill: #eee4da;
+    fill: #eee4da
+}
+
+.square4{
+    -fx-fill: #eee1c9;
+    fill: #eee1c9;
+}
+
+.square8{
+    -fx-fill: #f3b27a;
+    fill: #f3b27a;
+}
+
+.square16{
+    -fx-fill: #f69664;
+    fill: #f69664 
+}
+
+.square32{
+    -fx-fill: #f77c5f;
+    fill: #f77c5f
+}
+
+.square64{
+    -fx-fill: #f55f3a;
+    fill: #f55f3a;
+}
+
+.square128{
+    -fx-fill: #f1cf5f;
+    fill: #f1cf5f;
+}
+
+.square256{
+    -fx-fill: #f3cb49;
+    fill: #f3cb49;
+}
+
+.square512{
+    -fx-fill: #f3c82c;
+    fill: #f3c82c;
+}
+
+.square1024{
+    -fx-fill: #f3c300;
+    fill: #f3c300;
+}
+
+.square2048{
+    -fx-fill: #ebb800;
+    fill: #ebb800;
+}
+
+.square4096{
+    -fx-fill: #33b4a9;
+    fill: #33b4a9;
+}
+
+.square8192{
+    -fx-fill: red;
+    fill: red;
+}
+
+.newGame:hover{
+    -fx-fill: #bcbcbc;
+    fill: #bcbcbc;
+    -fx-cursor: hand;
+    cursor: hand;
+}
