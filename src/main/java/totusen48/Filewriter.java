@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Filewriter {
 
-    String filename = "C:/Users/auras/OneDrive/Documents/Koding/Objektorientert/tdt4100-students-24/minegenkode/src/main/java/totusen48/highscores.txt";
+    String filename = "src/main/java/totusen48/highscores.txt";
 
     public List<String> getHighscoreList() {
         List<String> scores = new ArrayList<String>();
