@@ -39,7 +39,7 @@ public class Controller {
         this.fw = new Filewriter();
         this.grid = new Grid();
         this.grid.startField();
-        this.score = this.grid.getScore();
+        this.score = this.grid.getScore(); //Grid and Controller uses same Score object
         updateTiles();
         highscoreText.setText(fw.getHighscore());
         gameOverText.setVisible(false);
@@ -61,17 +61,17 @@ public class Controller {
 
         for(int i=0; i<grid.length; i++){
             for(int j=0; j<grid[0].length; j++){
-                squares.get(4*i + j).getStyleClass().clear();
-                squares.get(4*i + j).getStyleClass().add("square" + grid[i][j].getValue());
+                squares.get(4*i + j).getStyleClass().clear(); //resets style of all squares
+                squares.get(4*i + j).getStyleClass().add("square" + grid[i][j].getValue()); //attaches new style with value of square
 
                 Text textField = (Text) textFields.get(4*i + j);
-                textField.getStyleClass().clear();
-                textField.getStyleClass().add("text" + grid[i][j].getValue());
+                textField.getStyleClass().clear(); //resets text of all squares
+                textField.getStyleClass().add("text" + grid[i][j].getValue()); //sets color and size of text
                 if(grid[i][j].getValue() != 0){
-                    textField.setText(Integer.toString(grid[i][j].getValue()));
+                    textField.setText(Integer.toString(grid[i][j].getValue())); //Sets text to value of square
                 }
                 else {
-                    textField.setText("");
+                    textField.setText(""); //Empty squares have no text
                 }
             }
         }

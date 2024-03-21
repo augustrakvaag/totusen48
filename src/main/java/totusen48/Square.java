@@ -1,6 +1,7 @@
 package totusen48;
 
 public class Square{
+    
     private int value;
     private boolean used = false;
     private Grid grid;

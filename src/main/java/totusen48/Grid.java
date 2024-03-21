@@ -10,10 +10,10 @@ public class Grid {
     public void startField(){
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
-                this.field[i][j] = new Square(this);
+                this.field[i][j] = new Square(this); //Creates Square objects in field
             }
         }
-        addNewSquare(this.field);
+        addNewSquare(this.field); //adds two random squares to start the game
         addNewSquare(this.field);
         score = new Score();
     }
@@ -23,33 +23,33 @@ public class Grid {
             int leftest = 0;
             for(int j=1; j<4; j++){
                 Square leftestSquare = field[i][leftest];
-                if(field[i][j].getValue() == 0){
+                if(field[i][j].getValue() == 0){ //Empty squares should not be moved
+                    continue; 
+                }
+                if(j == leftest){ //Square is leftmost. Can not be moved
                     continue;
                 }
-                if(j == leftest){
-                    continue;
+                if(field[i][leftest].getValue() == 0){ //Leftmost square is empty
+                    field[i][leftest].setValue(field[i][j].getValue()); //Creates a copy of current square and places it in leftmost
+                    field[i][j].remove(); //removes current square
                 }
-                if(field[i][leftest].getValue() == 0){
-                    field[i][leftest].setValue(field[i][j].getValue());
-                    field[i][j].remove();
+                else if((leftestSquare.getValue() == field[i][j].getValue()) && leftestSquare.getUsed() == false){ //square and leftmost should merge
+                    field[i][leftest].add(); //doubles leftmost square
+                    field[i][j].remove(); //removes current square
+                    field[i][leftest].setUsed(true); //sets used to true so it can not merge again this round
                 }
-                else if((leftestSquare.getValue() == field[i][j].getValue()) && leftestSquare.getUsed() == false){
-                    field[i][leftest].add();
-                    field[i][j].remove();
-                    field[i][leftest].setUsed(true);
-                }
-                else{
-                    if(leftest+1 == j){
-                        leftest++;
-                        continue;
+                else{ //leftmost and current square are different values
+                    if(leftest+1 == j){ //adjacent. Should not move
+                        leftest++; //current square becomes leftmost
+                        continue; //moves on to next square
                     }
-                    field[i][leftest+1].setValue(field[i][j].getValue());
-                    field[i][j].remove();
+                    field[i][leftest+1].setValue(field[i][j].getValue()); //square next to leftest gets value of current square
+                    field[i][j].remove(); //removes current square
                     leftest++;
                 }
             }
         }
-        prepareNewMove(field);
+        prepareNewMove(field); //adds a new square and sets all squares to not used
         return field;
     }
 
@@ -58,38 +58,38 @@ public class Grid {
             int rightest = 3;
             for(int j=2; j>=0; j--){
                 Square rightestSquare = field[i][rightest];
-                if(field[i][j].getValue() == 0){
+                if(field[i][j].getValue() == 0){ //empty squares should not be moved
                     continue;
                 }
-                if(j == rightest){
+                if(j == rightest){ //square is rightmost. Can not be moved
                     continue;
                 }
-                if(field[i][rightest].getValue() == 0){
-                    field[i][rightest].setValue(field[i][j].getValue());
-                    field[i][j].remove();
+                if(field[i][rightest].getValue() == 0){ //rightmost square is empty
+                    field[i][rightest].setValue(field[i][j].getValue()); //Creates a copy of current square and places it in rightmost
+                    field[i][j].remove(); //removes current square
                 }
-                else if((rightestSquare.getValue() == field[i][j].getValue()) && rightestSquare.getUsed() == false){
-                    field[i][rightest].add();
-                    field[i][j].remove();
-                    field[i][rightest].setUsed(true);
+                else if((rightestSquare.getValue() == field[i][j].getValue()) && rightestSquare.getUsed() == false){ //square and rightmost should merge
+                    field[i][rightest].add(); //doubles rightmost square
+                    field[i][j].remove(); //removes current square
+                    field[i][rightest].setUsed(true); //sets used to true so it can not merge again this round
                 }
-                else{
-                    if(rightest-1 == j){
-                        rightest--;
-                        continue;
+                else{ //rightmost and current square are different values
+                    if(rightest-1 == j){ //adjacent. Should not move
+                        rightest--; //current square becomes rightmost
+                        continue; //moves on to next square
                     }
-                    field[i][rightest-1].setValue(field[i][j].getValue());
-                    field[i][j].remove();
+                    field[i][rightest-1].setValue(field[i][j].getValue()); //square next to leftest gets value of current square
+                    field[i][j].remove(); //removes current square
                     rightest--;
 
                 }
             }
         }
-        prepareNewMove(field);
+        prepareNewMove(field); //adds a new square and sets all squares to not used
         return field;
     }
 
-    public Square[][] moveUp(Square[][] field){
+    public Square[][] moveUp(Square[][] field){ //transposes the matrix, moves it left, transposes back
         Square[][] tempMap = transpose(field);
         tempMap = moveLeft(tempMap);
         tempMap = transpose(tempMap);
@@ -97,7 +97,7 @@ public class Grid {
         return tempMap;
     }
 
-    public Square[][] moveDown(Square[][] field){
+    public Square[][] moveDown(Square[][] field){ //transposes the matrix, moves it right, transposes back
         Square[][] tempMap = transpose(field);
         tempMap = moveRight(tempMap);
         tempMap = transpose(tempMap);
@@ -105,16 +105,16 @@ public class Grid {
         return tempMap;
     }
 
-    public void addNewSquare(Square[][] field){
-        List <Square> zeros = getAllEmpty(field);
-        int randomNumber = RandomNumber(zeros.size());
+    public void addNewSquare(Square[][] field){ //Adds a new square to the field
+        List <Square> zeros = getAllEmpty(field); //gets all empty squares
+        int randomNumber = RandomNumber(zeros.size()); //chooses random empty square
         int randomValueNumber = RandomNumber(10);
-        boolean checker = (randomValueNumber==1);
-        int value = checker ? 4 : 2;
-        (zeros.get(randomNumber)).setValue(value);
+        boolean checker = (randomValueNumber==1); //10% chance to get 4 instead of 2
+        int value = checker ? 4 : 2; 
+        (zeros.get(randomNumber)).setValue(value); //sets the random square to chosen value
     }
 
-    public List<Square> getAllEmpty(Square[][] field){
+    public List<Square> getAllEmpty(Square[][] field){ //Gets all empty squares in a field
         List<Square> zeros = new ArrayList<Square>();
         for(int i=0; i<4; i++){
             for(Square spot : field[i]){
@@ -126,7 +126,7 @@ public class Grid {
         return zeros;
     }
 
-    public void prepareNewMove(Square[][] field){
+    public void prepareNewMove(Square[][] field){ //adds a square to the field and sets all squares to not used
         addNewSquare(field);
         for(int i=0; i<4; i++){
             for(Square spot : field[i]){
@@ -135,7 +135,7 @@ public class Grid {
         }
     }
 
-    public boolean checkLoss(Square[][] field){
+    public boolean checkLoss(Square[][] field){ //loses if all squares are filled. Not real 2048
         List<Square> zeros = getAllEmpty(field);
         if(zeros.isEmpty()){
             return true;
@@ -143,7 +143,7 @@ public class Grid {
         return false;
     }
 
-    public Square[][] transpose(Square[][] field){
+    public Square[][] transpose(Square[][] field){ //Transposes a matrix
         Square[][] newGrid = new Square[4][4];
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
@@ -157,11 +157,11 @@ public class Grid {
         return this.field;
     }
 
-    public void setField(Square[][] field){
+    public void setField(Square[][] field){ 
         this.field = field;
     }
 
-    public void setField(int[][] field){
+    public void setField(int[][] field){ //sets the field from an array of numbers. Used in tests
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
                 this.field[i][j].setValue(field[i][j]);
@@ -169,12 +169,12 @@ public class Grid {
         }
     }
 
-    public int RandomNumber(int max){
+    public int RandomNumber(int max){ //generates random number
         Random r = new Random();
         return r.nextInt(max);
     }
 
-    public String toString(){
+    public String toString(){ //prints the field. used in tests or playing the game in CLI
         String[][] valueArray = new String[4][4];
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
