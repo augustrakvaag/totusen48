@@ -140,10 +140,10 @@ public class Grid {
         }
     }
 
-    public boolean checkLoss(Square[][] field){ //loses if all squares are filled. Not real 2048
+    public boolean checkLoss(Square[][] field){ //loses when there are no moves to do
         boolean loss = true;
         Square[][] tempMap = deepClone(field);
-        if(!this.toString(tempMap).equals(this.toString(moveDown(tempMap)))){
+        if(!this.toString(tempMap).equals(this.toString(moveDown(tempMap)))){ //checks if grid after moving will be the same as before => not a legal move
             loss = false;
         }
         tempMap = deepClone(field);
@@ -230,12 +230,5 @@ public class Grid {
 
     public void setScore(Score score){
         this.score = score;
-    }
-
-    public static void main(String[] args) {
-        Grid g = new Grid();
-        g.startField();
-        g.setField(new int[][]{{2,4,2,4},{4,2,4,2},{2,4,2,4},{4,2,4,2}});
-        System.out.println(g.checkLoss(g.getField()));
     }
 }
