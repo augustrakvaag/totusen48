@@ -90,23 +90,28 @@ public class Grid {
     }
 
     public Square[][] moveUp(Square[][] field){ //transposes the matrix, moves it left, transposes back
-        Square[][] tempMap = transpose(field);
+        Square[][] tempMap = field.clone();
+        tempMap = transpose(tempMap);
         tempMap = moveLeft(tempMap);
         tempMap = transpose(tempMap);
-        this.field = tempMap;
+        field = tempMap;
         return tempMap;
     }
 
     public Square[][] moveDown(Square[][] field){ //transposes the matrix, moves it right, transposes back
-        Square[][] tempMap = transpose(field);
+        Square[][] tempMap = field.clone();
+        tempMap = transpose(tempMap);
         tempMap = moveRight(tempMap);
         tempMap = transpose(tempMap);
-        this.field = tempMap;
+        field = tempMap;
         return tempMap;
     }
 
     public void addNewSquare(Square[][] field){ //Adds a new square to the field
         List <Square> zeros = getAllEmpty(field); //gets all empty squares
+        if(zeros.isEmpty()){
+            return;
+        }
         int randomNumber = RandomNumber(zeros.size()); //chooses random empty square
         int randomValueNumber = RandomNumber(10);
         boolean checker = (randomValueNumber==1); //10% chance to get 4 instead of 2
@@ -136,11 +141,25 @@ public class Grid {
     }
 
     public boolean checkLoss(Square[][] field){ //loses if all squares are filled. Not real 2048
-        List<Square> zeros = getAllEmpty(field);
-        if(zeros.isEmpty()){
-            return true;
+        boolean loss = true;
+        Square[][] tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveDown(tempMap)))){
+            loss = false;
         }
-        return false;
+        tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveUp(tempMap)))){
+            loss = false;
+        }
+        tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveLeft(tempMap)))){
+            loss = false;
+        }
+        tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveRight(tempMap)))){
+            loss = false;
+        }
+        return loss;
+
     }
 
     public Square[][] transpose(Square[][] field){ //Transposes a matrix
@@ -174,7 +193,7 @@ public class Grid {
         return r.nextInt(max);
     }
 
-    public String toString(){ //prints the field. used in tests or playing the game in CLI
+    public String toString(Square[][] field){ //prints the field. used in tests or playing the game in CLI
         String[][] valueArray = new String[4][4];
         for(int i=0; i<4; i++){
             for(int j=0; j<4; j++){
@@ -192,11 +211,31 @@ public class Grid {
         return value;
     }
 
+    public Square[][] deepClone(Square[][] original) {
+        Square[][] copy = new Square[4][];
+        for (int i=0; i<4; i++) {
+            copy[i] = new Square[4];
+            for (int j=0; j<4; j++) {
+                Square newSquare = new Square();
+                newSquare.setValue(original[i][j].getValue());
+                copy[i][j] = newSquare;
+            }
+        }
+        return copy;
+    }
+
     public Score getScore(){
         return score;
     }
 
     public void setScore(Score score){
         this.score = score;
+    }
+
+    public static void main(String[] args) {
+        Grid g = new Grid();
+        g.startField();
+        g.setField(new int[][]{{2,4,2,4},{4,2,4,2},{2,4,2,4},{4,2,4,2}});
+        System.out.println(g.checkLoss(g.getField()));
     }
 }

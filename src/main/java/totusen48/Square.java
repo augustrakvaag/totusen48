@@ -10,6 +10,8 @@ public class Square{
         this.grid = grid;
     }
 
+    public Square(){};
+
     public Grid getGrid() {
         return grid;
     }
@@ -19,6 +21,9 @@ public class Square{
     }
 
     public void add(){
+        if(this.grid == null){
+            return;
+        }
         this.value *= 2;
         ((this.getGrid()).getScore()).addPoints(this.value);
     }
