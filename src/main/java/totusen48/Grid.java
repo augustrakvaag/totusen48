@@ -140,22 +140,50 @@ public class Grid {
         }
     }
 
-    public boolean checkLoss(Square[][] field){ //loses when there are no moves to do
-        boolean loss = true;
+    public boolean checkLegalUp(Square[][]field){
+        Square[][] tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveUp(tempMap)))){ //checks if grid after moving will be the same as before => not a legal move
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkLegalDown(Square[][]field){
         Square[][] tempMap = deepClone(field);
         if(!this.toString(tempMap).equals(this.toString(moveDown(tempMap)))){ //checks if grid after moving will be the same as before => not a legal move
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkLegalLeft(Square[][]field){
+        Square[][] tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveLeft(tempMap)))){ //checks if grid after moving will be the same as before => not a legal move
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkLegalRight(Square[][]field){
+        Square[][] tempMap = deepClone(field);
+        if(!this.toString(tempMap).equals(this.toString(moveUp(tempMap)))){ //checks if grid after moving will be the same as before => not a legal move
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkLoss(Square[][] field){ //loses when there are no moves to do
+        boolean loss = true;
+        if(checkLegalDown(field)){ //checks if grid after moving will be the same as before => not a legal move
             loss = false;
         }
-        tempMap = deepClone(field);
-        if(!this.toString(tempMap).equals(this.toString(moveUp(tempMap)))){
+        if(checkLegalUp(field)){
             loss = false;
         }
-        tempMap = deepClone(field);
-        if(!this.toString(tempMap).equals(this.toString(moveLeft(tempMap)))){
+        if(checkLegalLeft(field)){
             loss = false;
         }
-        tempMap = deepClone(field);
-        if(!this.toString(tempMap).equals(this.toString(moveRight(tempMap)))){
+        if(checkLegalRight(field)){
             loss = false;
         }
         return loss;

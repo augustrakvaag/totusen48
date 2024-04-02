@@ -87,7 +87,7 @@ public class Controller {
     }
 
     public void moveUp(){
-        if(!gameOver){
+        if(!gameOver && this.grid.checkLegalUp(this.grid.getField())){
             this.grid.moveUp(this.grid.getField());
             updateTiles();
             checkLoss();
@@ -95,7 +95,7 @@ public class Controller {
     }
 
     public void moveDown(){
-        if(!gameOver){
+        if(!gameOver && this.grid.checkLegalDown(this.grid.getField())){
         this.grid.moveDown(this.grid.getField());
         updateTiles();
         checkLoss();
@@ -103,7 +103,7 @@ public class Controller {
     }
 
     public void moveLeft(){
-        if(!gameOver){
+        if(!gameOver && this.grid.checkLegalLeft(this.grid.getField())){
         this.grid.moveLeft(this.grid.getField());
         updateTiles();
         checkLoss();
@@ -111,7 +111,7 @@ public class Controller {
     }
 
     public void moveRight(){
-        if(!gameOver){
+        if(!gameOver && this.grid.checkLegalRight(this.grid.getField())){
         this.grid.moveRight(this.grid.getField());
         updateTiles();
         checkLoss();
